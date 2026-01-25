@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
+  // If you're deploying to GitHub Pages under the `portfolio` repo,
+  // set the base path accordingly. Change or remove for other hosts.
+  base: '/portfolio/',
 })
