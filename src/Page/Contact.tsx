@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import emailjs from "emailjs-com"
+import emailjs from "@emailjs/browser"
 import confetti from "canvas-confetti"
 
 function Contact() {

@@ -14,7 +14,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
     "canvas-confetti": "^1.9.4",
-    "emailjs-com": "^3.2.0",
+    "@emailjs/browser": "^3.2.0",
     "framer-motion": "^12.26.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.0",
