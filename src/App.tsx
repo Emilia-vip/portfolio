@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import AboutMe from "./Page/AboutMe"
 import Projects from "./components/Projects"
+import Timeline from "./components/Timeline"
 import Contact from "./Page/Contact"
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
 
       <Navbar />
 
-      <main className="pt-[120px]">
+      <main className="pt-[120px] px-4 sm:px-6 lg:px-8">
         <AboutMe />
         <Projects />
+        <Timeline />
         <Contact />
       </main>
     </div>

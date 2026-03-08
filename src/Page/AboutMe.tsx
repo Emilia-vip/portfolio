@@ -26,6 +26,14 @@ function AboutMe() {
     },
   ];
 
+  // timeline placeholder; fill in your own years and descriptions
+  const timeline = [
+    { year: "2020", type: "Education", description: "(your details here)" },
+    { year: "2021", type: "Job", description: "(your details here)" },
+    { year: "2022", type: "Education", description: "(your details here)" },
+    { year: "2023", type: "Job", description: "(your details here)" },
+  ];
+
   return (
     <section id="about" className="relative py-32 overflow-hidden bg-[#faf9f6]">
       {/* Background blobs */}
@@ -34,7 +42,7 @@ function AboutMe() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[rgba(156,139,106,0.1)] rounded-full blur-[120px] animate-pulse delay-1000" />
       </div>
 
-      <div className="relative max-w-[1100px] mx-auto px-6">
+      <div className="relative max-w-[1100px] mx-auto px-4 sm:px-6">
         {/* About card */}
         <motion.div
           initial={{ opacity: 0, translateY: 30 }}
@@ -45,11 +53,11 @@ function AboutMe() {
         >
           <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
             <div className="flex-1 space-y-6">
-              <h2 className="text-4xl font-bold text-[#3f3a32] tracking-tight text-center md:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#3f3a32] tracking-tight text-center md:text-left">
                 About <span className="text-[#9c8b6a]">Me</span>
               </h2>
 
-              <p className="text-[#5f584f] text-lg leading-relaxed text-center md:text-left">
+              <p className="text-[#5f584f] text-base sm:text-lg leading-relaxed text-center md:text-left">
                 Hi, I'm <span className="font-semibold text-[#3f3a32]">Emilia Eriksson</span>. 
                 As an aspiring Full-stack Developer, I view coding as a digital craft. 
                 This portfolio is more than just a gallery of projects – it’s a documentation 
@@ -131,6 +139,60 @@ function AboutMe() {
               </motion.div>
             </motion.div>
           ))}
+        </div>
+
+        {/* timeline section */}
+        <div className="mt-24">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#3f3a32] mb-8 text-center">
+            Timeline
+          </h3>
+
+          <ul className="relative space-y-12">
+            {/* vertical line */}
+            <div className="absolute left-1/2 top-0 w-0.5 h-full bg-[#9c8b6a] transform -translate-x-1/2" />
+
+            {timeline.map((item, idx) => (
+              <li
+                key={idx}
+                className="flex flex-col items-center md:flex-row md:justify-center md:items-start"
+              >
+                {/* left / job side */}
+                <div className="w-full md:w-1/2 text-right md:pr-8">
+                  {item.type === "Job" && (
+                    <div className="inline-block">
+                      <span className="block text-sm font-medium text-[#3f3a32]">
+                        {item.type}
+                      </span>
+                      <p className="text-[#5f584f] text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* year centered */}
+                <div className="relative w-full md:w-1/6 flex justify-center my-2 md:my-0">
+                  <span className="text-lg font-semibold text-[#3f3a32]">
+                    {item.year}
+                  </span>
+                </div>
+
+                {/* right / education side */}
+                <div className="w-full md:w-1/2 text-left md:pl-8">
+                  {item.type === "Education" && (
+                    <div className="inline-block">
+                      <span className="block text-sm font-medium text-[#3f3a32]">
+                        {item.type}
+                      </span>
+                      <p className="text-[#5f584f] text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

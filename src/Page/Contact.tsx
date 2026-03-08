@@ -1,14 +1,19 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import emailjs from "@emailjs/browser"
 import confetti from "canvas-confetti"
 
 function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
+  const [sentBy, setSentBy] = useState<string | null>(null)
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault()
 
     if (!formRef.current) return
+
+    const formEl = formRef.current
+    const formData = new FormData(formEl)
+    const senderName = (formData.get("from_name") || "").toString()
 
     emailjs
       .sendForm(
@@ -26,6 +31,9 @@ function Contact() {
             origin: { y: 0.6 },
             colors: ['#9c8b6a', '#d2be96', '#ffffff'] 
           });
+          formEl.reset()
+          setSentBy(senderName || null)
+          setTimeout(() => setSentBy(null), 5000)
 
         },
         (error) => {
@@ -37,8 +45,8 @@ function Contact() {
 
   return (
     <section id="contact" className="py-32 bg-[#f9f9f9]">
-      <div className="max-w-xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-4 text-center text-[#3f3a32]">
+      <div className="max-w-xl mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center text-[#3f3a32]">
           Contact <span className="text-[#9c8b6a]">Me</span>
         </h2>
         <p className="text-center text-[#5f584f] mb-12">
@@ -49,7 +57,7 @@ function Contact() {
           <div
             role="status"
             aria-live="polite"
-            className="mb-6 px-4 py-3 rounded-lg bg-green-50 text-brown-800 text-center"
+            className="mb-6 px-4 py-3 rounded-lg bg-brown-50 text-brown-800 text-center"
           >
             Message sent — from {sentBy}
           </div>
