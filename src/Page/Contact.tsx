@@ -45,6 +45,16 @@ function Contact() {
           Have a question or want to work together? Send me a message!
         </p>
 
+        {sentBy && (
+          <div
+            role="status"
+            aria-live="polite"
+            className="mb-6 px-4 py-3 rounded-lg bg-green-50 text-brown-800 text-center"
+          >
+            Message sent — from {sentBy}
+          </div>
+        )}
+
         <form
           ref={formRef}
           onSubmit={sendEmail}
