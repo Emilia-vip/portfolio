@@ -38,7 +38,7 @@ function Contact() {
         },
         (error) => {
           console.error(error)
-          alert("Oppsss.. somethinhg is wrong")
+          alert("Oppsss.. something is wrong")
         }
       )
   }
