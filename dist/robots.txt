@@ -1,0 +1,6 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Disallow:
+
+# Optional sitemap if you have one
+# Sitemap: https://www.dindomän.se/sitemap.xml
