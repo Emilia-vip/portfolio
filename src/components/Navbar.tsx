@@ -3,34 +3,39 @@ import Github from "../Page/Github"
 
 function Navbar() {
   const [githubOpen, setGithubOpen] = useState(false)
-  const githubRef = useRef<HTMLDivElement>(null) 
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const githubRef = useRef<HTMLDivElement>(null)
  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (githubOpen && githubRef.current && !githubRef.current.contains(event.target as Node)) {
         setGithubOpen(false)
       }
+      if (mobileOpen && !(event.target as Element).closest("#mobile-menu") && !(event.target as Element).closest("#hamburger")) {
+        setMobileOpen(false)
+      }
     }
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [githubOpen])
+  }, [githubOpen, mobileOpen])
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     el?.scrollIntoView({ behavior: "smooth" })
     setGithubOpen(false)
+    setMobileOpen(false)
   }
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-[rgba(200,180,150,0.4)] shadow-[0_10px_30px_rgba(120,100,70,0.12)]">
-      <nav className="max-w-[1100px] mx-auto px-8 py-6 flex items-center justify-between">
+      <nav className="max-w-[1100px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <div className="text-[12px] font-semibold tracking-[0.35em] uppercase">
           Emilia Eriksson
-         
           <span className="ml-1 text-[#9c8b6a] animate-cursor font-bold">_</span>
         </div>
 
-        <div className="flex gap-6 items-center">
+        {/* desktop links */}
+        <div className="hidden md:flex gap-6 items-center">
           {[
             { id: "about", label: "About" },
             { id: "projects", label: "Projects" },
@@ -56,6 +61,57 @@ function Navbar() {
             {githubOpen && <Github />}
           </div>
         </div>
+
+        {/* mobile hamburger */}
+        <button
+          id="hamburger"
+          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50"
+          onClick={() => setMobileOpen(prev => !prev)}
+        >
+          <span className="sr-only">Toggle menu</span>
+          <svg
+            className="h-6 w-6 text-[#5f584f]"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {mobileOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
+        {/* mobile menu overlay */}
+        {mobileOpen && (
+          <div
+            id="mobile-menu"
+            className="absolute top-full inset-x-0 bg-white/90 backdrop-blur-lg flex flex-col items-center gap-6 py-8 md:hidden"
+          >
+            {[
+              { id: "about", label: "About" },
+              { id: "projects", label: "Projects" },
+              { id: "contact", label: "Contact" },
+            ].map(link => (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className="text-base font-semibold text-[#3f3a32] uppercase tracking-wider"
+              >
+                {link.label}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setGithubOpen(prev => !prev)}
+              className="text-base font-semibold text-[#3f3a32] uppercase tracking-wider"
+            >
+              GitHub
+            </button>
+          </div>
+        )}
       </nav>
     </header>
   )

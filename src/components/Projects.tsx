@@ -24,7 +24,7 @@ function Projects() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_top_right,rgba(200,180,150,0.25),transparent_70%)]" />
       </div>
 
-      <div className="relative max-w-[1100px] mx-auto">
+      <div className="relative max-w-[1100px] mx-auto px-4 sm:px-6">
 
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -32,10 +32,10 @@ function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-5xl font-bold text-[#3f3a32] mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#3f3a32] mb-4 tracking-tight">
             Projects
           </h2>
-          <p className="text-[#5f584f] text-lg max-w-[520px] leading-relaxed">
+          <p className="text-[#5f584f] text-base sm:text-lg max-w-[520px] leading-relaxed">
             A selection of projects I've built and experimented with during my journey as a developer.
           </p>
         </motion.div>
