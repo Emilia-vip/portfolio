@@ -26,14 +26,6 @@ function AboutMe() {
     },
   ];
 
-  // timeline placeholder; fill in your own years and descriptions
-  const timeline = [
-    { year: "2020", type: "Education", description: "(your details here)" },
-    { year: "2021", type: "Job", description: "(your details here)" },
-    { year: "2022", type: "Education", description: "(your details here)" },
-    { year: "2023", type: "Job", description: "(your details here)" },
-  ];
-
   return (
     <section id="about" className="relative py-32 overflow-hidden bg-[#faf9f6]">
       {/* Background blobs */}
@@ -139,60 +131,6 @@ function AboutMe() {
               </motion.div>
             </motion.div>
           ))}
-        </div>
-
-        {/* timeline section */}
-        <div className="mt-24">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#3f3a32] mb-8 text-center">
-            Timeline
-          </h3>
-
-          <ul className="relative space-y-12">
-            {/* vertical line */}
-            <div className="absolute left-1/2 top-0 w-0.5 h-full bg-[#9c8b6a] transform -translate-x-1/2" />
-
-            {timeline.map((item, idx) => (
-              <li
-                key={idx}
-                className="flex flex-col items-center md:flex-row md:justify-center md:items-start"
-              >
-                {/* left / job side */}
-                <div className="w-full md:w-1/2 text-right md:pr-8">
-                  {item.type === "Job" && (
-                    <div className="inline-block">
-                      <span className="block text-sm font-medium text-[#3f3a32]">
-                        {item.type}
-                      </span>
-                      <p className="text-[#5f584f] text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* year centered */}
-                <div className="relative w-full md:w-1/6 flex justify-center my-2 md:my-0">
-                  <span className="text-lg font-semibold text-[#3f3a32]">
-                    {item.year}
-                  </span>
-                </div>
-
-                {/* right / education side */}
-                <div className="w-full md:w-1/2 text-left md:pl-8">
-                  {item.type === "Education" && (
-                    <div className="inline-block">
-                      <span className="block text-sm font-medium text-[#3f3a32]">
-                        {item.type}
-                      </span>
-                      <p className="text-[#5f584f] text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

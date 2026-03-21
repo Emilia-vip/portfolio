@@ -83,7 +83,7 @@ function Timeline() {
 
   return (
     <section id="timeline" className="relative py-32 overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, translateY: 20 }}
@@ -100,77 +100,89 @@ function Timeline() {
           </p>
         </motion.div>
 
-        {/* Timeline Container */}
+        {/* Horizontal Timeline */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative"
+          className="timeline-scroll relative overflow-x-auto snap-x snap-mandatory pb-8"
         >
-          {/* Vertical Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-[#9c8b6a] via-[#9c8b6a] to-transparent transform -translate-x-1/2" />
+          <div className="relative min-w-max px-6">
+            <div className="absolute left-6 right-6 top-1/2 h-0.5 bg-linear-to-r from-transparent via-[#9c8b6a] to-transparent" />
 
-          {/* Timeline Items */}
-          <div className="space-y-12">
+            <div className="relative grid grid-flow-col auto-cols-[240px] gap-8 sm:gap-10">
             {events.map((event, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`flex items-start gap-8 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
+                className="relative h-[460px] snap-center"
               >
-                {/* Left/Right Content */}
-                <div className={`w-full sm:w-[calc(50%-20px)] ${
-                  index % 2 === 0 ? "text-right" : ""
-                }`}>
+                {event.type === "work" && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`p-6 rounded-2xl border backdrop-blur-sm transition-all duration-300 hover:shadow-lg ${
-                      event.type === "work"
-                        ? "bg-[#fff5e6]/40 border-[#ffd699]/30 hover:bg-[#fff5e6]/60"
-                        : "bg-[#e6f2ff]/40 border-[#99d4ff]/30 hover:bg-[#e6f2ff]/60"
-                    }`}
+                    className="absolute left-1/2 bottom-[calc(50%+56px)] w-[220px] -translate-x-1/2 p-4 rounded-2xl border backdrop-blur-sm transition-all duration-300 hover:shadow-lg bg-[#fff5e6]/45 border-[#ffd699]/30 hover:bg-[#fff5e6]/65"
                   >
-                    <div className="flex items-center gap-2 mb-2 justify-end sm:justify-start">
-                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                        event.type === "work"
-                          ? "bg-[#ffd699]/30 text-[#8b6914]"
-                          : "bg-[#99d4ff]/30 text-[#1466b8]"
-                      }`}>
-                        {event.type === "work" ? "Work" : "Education"}
+                    <div className="flex items-center gap-2 mb-2 justify-center">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#ffd699]/30 text-[#8b6914]">
+                        Work
                       </span>
                     </div>
-                    <h3 className="text-lg font-semibold text-[#3f3a32] mb-1">
+                    <h3 className="text-base font-semibold text-[#3f3a32] mb-1 text-center">
                       {event.title}
                     </h3>
                     {event.description && (
-                      <p className="text-sm text-[#5f584f] mb-2">
+                      <p className="text-sm text-[#5f584f] mb-2 text-center">
                         {event.description}
                       </p>
                     )}
-                    <p className="text-xs font-medium text-[#9c8b6a]">
+                    <p className="text-xs font-medium text-[#9c8b6a] text-center">
                       {event.year}
                     </p>
                   </motion.div>
-                </div>
+                )}
 
-                {/* Center Circle/Dot */}
+                {event.type === "education" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="absolute left-1/2 top-[calc(50%+56px)] w-[220px] -translate-x-1/2 p-4 rounded-2xl border backdrop-blur-sm transition-all duration-300 hover:shadow-lg bg-[#e6f2ff]/45 border-[#99d4ff]/30 hover:bg-[#e6f2ff]/65"
+                  >
+                    <div className="flex items-center gap-2 mb-2 justify-center">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#99d4ff]/30 text-[#1466b8]">
+                        Education
+                      </span>
+                    </div>
+                    <h3 className="text-base font-semibold text-[#3f3a32] mb-1 text-center">
+                      {event.title}
+                    </h3>
+                    {event.description && (
+                      <p className="text-sm text-[#5f584f] mb-2 text-center">
+                        {event.description}
+                      </p>
+                    )}
+                    <p className="text-xs font-medium text-[#9c8b6a] text-center">
+                      {event.year}
+                    </p>
+                  </motion.div>
+                )}
+
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.4, 
+                  transition={{
+                    duration: 0.4,
                     delay: index * 0.1,
                     type: "spring",
                     stiffness: 200,
                   }}
-                  className="relative shrink-0 w-6 h-6 sm:w-8 sm:h-8"
+                  className="absolute left-1/2 top-1/2 z-10 w-6 h-6 -translate-x-1/2 -translate-y-1/2"
                 >
                   <div className="absolute inset-0 bg-[#9c8b6a] rounded-full" />
                   <motion.div
@@ -180,10 +192,12 @@ function Timeline() {
                   />
                 </motion.div>
 
-                {/* Right/Left Empty Space */}
-                <div className="hidden sm:block w-[calc(50%-20px)]" />
+                <p className="absolute left-1/2 top-[calc(50%+22px)] -translate-x-1/2 text-xs font-medium text-[#7a6f5b]">
+                  {event.year}
+                </p>
               </motion.div>
             ))}
+            </div>
           </div>
         </motion.div>
       </div>

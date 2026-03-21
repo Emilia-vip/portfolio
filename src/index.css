@@ -42,3 +42,25 @@
     animation: cursor-blink 1.2s step-end infinite;
   }
 }
+
+.timeline-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #c8b48f transparent;
+}
+
+.timeline-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #d8c8ad, #b99e72);
+  border-radius: 9999px;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #cdb996, #a98d61);
+}
