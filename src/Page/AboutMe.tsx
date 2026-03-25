@@ -27,11 +27,11 @@ function AboutMe() {
   ];
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden bg-[#faf9f6]">
+    <section id="about" className="relative py-20 md:py-28 overflow-hidden bg-[#faf9f6]">
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[rgba(210,190,160,0.2)] rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[rgba(156,139,106,0.1)] rounded-full blur-[120px] animate-pulse delay-1000" />
+        <div className="absolute top-1/4 left-1/4 w-60 h-60 md:w-96 md:h-96 bg-[rgba(210,190,160,0.2)] rounded-full blur-[90px] md:blur-[120px] animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-60 h-60 md:w-96 md:h-96 bg-[rgba(156,139,106,0.1)] rounded-full blur-[90px] md:blur-[120px] animate-pulse delay-1000" />
       </div>
 
       <div className="relative max-w-[1100px] mx-auto px-4 sm:px-6">
@@ -41,15 +41,15 @@ function AboutMe() {
           whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white/40 backdrop-blur-2xl border border-[rgba(200,180,150,0.3)] rounded-[3rem] p-10 md:p-16 shadow-[0_20px_50px_rgba(120,100,70,0.1)] mb-24 will-change-transform"
+          className="bg-white/40 backdrop-blur-2xl border border-[rgba(200,180,150,0.3)] rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 md:p-14 shadow-[0_20px_50px_rgba(120,100,70,0.1)] mb-12 md:mb-20 will-change-transform"
         >
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
-            <div className="flex-1 space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#3f3a32] tracking-tight text-center md:text-left">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-5xl mx-auto">
+            <div className="flex-1 space-y-4 md:space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3f3a32] tracking-tight text-center md:text-left">
                 About <span className="text-[#9c8b6a]">Me</span>
               </h2>
 
-              <p className="text-[#5f584f] text-base sm:text-lg leading-relaxed text-center md:text-left">
+              <p className="text-[#5f584f] text-sm sm:text-base md:text-lg leading-relaxed text-center md:text-left">
                 Hi, I'm <span className="font-semibold text-[#3f3a32]">Emilia Eriksson</span>. 
                 As an aspiring Full-stack Developer, I view coding as a digital craft. 
                 This portfolio is more than just a gallery of projects – it’s a documentation 
@@ -75,14 +75,14 @@ function AboutMe() {
                 alt="Emilia Eriksson"
                 fetchPriority="high"
                 loading="eager"
-                className="relative w-56 h-56 object-cover border-4 border-white shadow-2xl transition-transform duration-500 hover:scale-105 animate-blob"
+                className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-cover border-4 border-white shadow-2xl transition-transform duration-500 hover:scale-105 animate-blob"
               />
             </motion.div>
           </div>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 md:gap-8 md:grid-cols-3">
           {cards.map((item, index) => (
             <motion.div
               key={index}
@@ -98,7 +98,7 @@ function AboutMe() {
               <motion.div
                 whileHover={{ translateY: -10 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                className="relative h-full bg-white/60 backdrop-blur-md border border-white/50 rounded-3xl p-8 shadow-sm group-hover:shadow-2xl transition-all duration-500 overflow-hidden will-change-transform"
+                className="relative h-full bg-white/60 backdrop-blur-md border border-white/50 rounded-3xl p-6 md:p-8 shadow-sm group-hover:shadow-2xl transition-all duration-500 overflow-hidden will-change-transform"
               >
                 <div className={`absolute -right-4 -top-4 w-20 h-20 bg-gradient-to-br ${item.color} rounded-full opacity-40 group-hover:scale-150 transition-transform duration-700`} />
 
@@ -111,7 +111,7 @@ function AboutMe() {
                     />
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#3f3a32] mb-3 tracking-tight">
+                  <h3 className="text-lg md:text-xl font-bold text-[#3f3a32] mb-3 tracking-tight">
                     {item.title}
                   </h3>
 
@@ -123,8 +123,7 @@ function AboutMe() {
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-[rgb(255,255,255)] overflow-hidden">
                   <div className="absolute inset-0 w-0 group-hover:w-full bg-[#f1a5a5] transition-all duration-500 ease-out">
                     <div
-                      className="absolute top-0 h-full w-24 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-[25deg] animate-[shine_1.5s_infinite]"
-                      style={{ left: "-100%" }}
+                      className="absolute -left-full top-0 h-full w-24 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-[25deg] animate-[shine_1.5s_infinite]"
                     />
                   </div>
                 </div>

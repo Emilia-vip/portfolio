@@ -4,22 +4,36 @@ const projects = [
   {
     title: "Calculator",
     description:
-      "A calculator for the best equation",
+      "A responsive calculator built with React and TypeScript, designed to handle complex calculations with a clean and intuitive user interface. Styled using Tailwind CSS for a modern look and smooth user experience.",
     tech: ["React", "TypeScript", "Tailwind"],
     github: "https://github.com/Emilia-vip/Calculator",
   },
   {
+    title: "Massage-webbsite",
+    description:
+      "A full-featured website for a massage business, including an online booking system and detailed information about treatments and services. Built with JavaScript and TypeScript, focusing on usability and clear presentation",
+    tech: ["JavaScript", "TypeScript", "CSS"],
+    github: "https://github.com/Emilia-vip/Massage-webbsite",
+  },
+  {
     title: "Dress up game",
     description:
-      "A fashion game build on vite whith react and tailwind.",
+      "A fun and interactive fashion game where users can style characters with different outfits. Built with React, TypeScript, and Tailwind, with MongoDB integration for storing user data and game content.",
     tech: ["React", "TypeScript", "MongoDB"],
     github: "https://github.com/Emilia-vip/Top-modle-Dress-Up",
+  },
+   {
+    title: "Portfolio",
+    description:
+      "A personal portfolio showcasing my projects and skills in modern web development. Built with a focus on clean design, responsiveness, and user experience, highlighting my work with React, TypeScript, and full-stack technologies",
+    tech: ["React", "TypeScript", "Tailwind"],
+    github: "https://github.com/Emilia-vip/portfolio",
   },
 ];
 
 function Projects() {
   return (
-    <section id="projects" className="relative py-32 px-6 bg-[#faf9f6] overflow-hidden">
+    <section id="projects" className="relative py-20 md:py-28 px-0 bg-[#faf9f6] overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_top_right,rgba(200,180,150,0.25),transparent_70%)]" />
       </div>
@@ -30,18 +44,18 @@ function Projects() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-10 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#3f3a32] mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#3f3a32] mb-3 md:mb-4 tracking-tight">
             Projects
           </h2>
-          <p className="text-[#5f584f] text-base sm:text-lg max-w-[520px] leading-relaxed">
+          <p className="text-[#5f584f] text-sm sm:text-base md:text-lg max-w-[520px] leading-relaxed">
             A selection of projects I've built and experimented with during my journey as a developer.
           </p>
         </motion.div>
 
        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -53,19 +67,19 @@ function Projects() {
               className="group relative"
             >
              
-              <div className="relative h-full p-10 rounded-[2rem] bg-white/70 backdrop-blur-xl border border-[rgba(200,180,150,0.4)] shadow-[0_18px_50px_rgba(120,100,70,0.12)] group-hover:shadow-[0_30px_70px_rgba(120,100,70,0.22)] transition-all duration-500 overflow-hidden">
+              <div className="relative h-full p-6 sm:p-7 md:p-10 rounded-3xl md:rounded-[2rem] bg-white/70 backdrop-blur-xl border border-[rgba(200,180,150,0.4)] shadow-[0_18px_50px_rgba(120,100,70,0.12)] group-hover:shadow-[0_30px_70px_rgba(120,100,70,0.22)] transition-all duration-500 overflow-hidden">
                 
                 <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-[rgba(200,180,150,0.1)] rounded-full blur-3xl group-hover:bg-[rgba(200,180,150,0.2)] transition-colors duration-500" />
 
-                <h3 className="text-2xl font-bold text-[#3f3a32] mb-4 tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3f3a32] mb-3 md:mb-4 tracking-tight">
                   {project.title}
                 </h3>
                 
-                <p className="text-[#5f584f] leading-relaxed mb-8 opacity-90">
+                <p className="text-sm sm:text-base text-[#5f584f] leading-relaxed mb-6 md:mb-8 opacity-90">
                   {project.description}
                 </p>
 
-                <ul className="flex flex-wrap gap-2 mb-10">
+                <ul className="flex flex-wrap gap-2 mb-7 md:mb-10">
                   {project.tech.map((tech) => (
                     <li 
                       key={tech} 
@@ -91,8 +105,7 @@ function Projects() {
                 <div className="absolute bottom-0 left-0 w-full h-1 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute inset-0 w-full bg-[#f1a5a5]">
                     <div 
-                      className="absolute top-0 h-full w-32 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-[25deg] animate-[shine_2s_infinite]"
-                      style={{ left: '-100%' }}
+                      className="absolute -left-full top-0 h-full w-32 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-[25deg] animate-[shine_2s_infinite]"
                     />
                   </div>
                 </div>

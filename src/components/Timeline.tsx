@@ -82,7 +82,7 @@ function Timeline() {
   };
 
   return (
-    <section id="timeline" className="relative py-32 overflow-hidden">
+    <section id="timeline" className="relative py-20 md:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Title */}
         <motion.div
@@ -90,14 +90,65 @@ function Timeline() {
           whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-10 md:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#3f3a32] tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold text-[#3f3a32] tracking-tight mb-3 md:mb-4">
             Experience &amp; <span className="text-[#9c8b6a]">Education</span>
           </h2>
-          <p className="text-[#5f584f] text-lg">
+          <p className="text-[#5f584f] text-sm sm:text-base md:text-lg">
             My journey through work and learning
           </p>
+        </motion.div>
+
+        {/* Mobile timeline */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative md:hidden"
+        >
+          <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-[#9c8b6a] to-transparent" />
+
+          <div className="space-y-4">
+            {events.map((event, index) => (
+              <motion.div
+                key={`${event.title}-${index}`}
+                variants={itemVariants}
+                className="relative pl-12"
+              >
+                <div className="absolute left-0 top-6 w-10 h-10 rounded-full bg-[#f3eadf] border border-[rgba(156,139,106,0.5)] flex items-center justify-center">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9c8b6a]" />
+                </div>
+
+                <div
+                  className={`rounded-2xl p-4 border backdrop-blur-sm ${
+                    event.type === "work"
+                      ? "bg-[#fff5e6]/55 border-[#ffd699]/40"
+                      : "bg-[#e6f2ff]/55 border-[#99d4ff]/40"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span
+                      className={`inline-block px-2.5 py-1 rounded-full text-[11px] font-semibold ${
+                        event.type === "work"
+                          ? "bg-[#ffd699]/35 text-[#8b6914]"
+                          : "bg-[#99d4ff]/35 text-[#1466b8]"
+                      }`}
+                    >
+                      {event.type === "work" ? "Work" : "Education"}
+                    </span>
+                    <span className="text-xs font-medium text-[#9c8b6a]">{event.year}</span>
+                  </div>
+
+                  <h3 className="text-sm font-semibold text-[#3f3a32]">{event.title}</h3>
+                  {event.description && (
+                    <p className="text-xs text-[#5f584f] mt-1">{event.description}</p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Horizontal Timeline */}
@@ -106,7 +157,7 @@ function Timeline() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="timeline-scroll relative overflow-x-auto snap-x snap-mandatory pb-8"
+          className="timeline-scroll relative overflow-x-auto snap-x snap-mandatory pb-8 hidden md:block"
         >
           <div className="relative min-w-max px-6">
             <div className="absolute left-6 right-6 top-1/2 h-0.5 bg-linear-to-r from-transparent via-[#9c8b6a] to-transparent" />
