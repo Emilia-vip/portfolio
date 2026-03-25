@@ -44,12 +44,12 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 bg-[#f9f9f9]">
+    <section id="contact" className="py-20 md:py-28 bg-[#f9f9f9]">
       <div className="max-w-xl mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center text-[#3f3a32]">
+        <h2 className="text-2xl sm:text-4xl font-bold mb-3 md:mb-4 text-center text-[#3f3a32]">
           Contact <span className="text-[#9c8b6a]">Me</span>
         </h2>
-        <p className="text-center text-[#5f584f] mb-12">
+        <p className="text-center text-sm sm:text-base text-[#5f584f] mb-8 md:mb-12">
           Have a question or want to work together? Send me a message!
         </p>
 
@@ -66,14 +66,14 @@ function Contact() {
         <form
           ref={formRef}
           onSubmit={sendEmail}
-          className="space-y-6"
+          className="space-y-4 md:space-y-6"
         >
           <input
             type="text"
             name="from_name"
             placeholder="Your name"
             required
-            className="w-full p-4 rounded-xl border border-[rgba(200,180,150,0.4)] bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50 transition-all"
+            className="w-full p-3.5 md:p-4 rounded-xl border border-[rgba(200,180,150,0.4)] bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50 transition-all"
           />
 
           <input
@@ -81,7 +81,7 @@ function Contact() {
             name="reply_to"
             placeholder="Your email"
             required
-            className="w-full p-4 rounded-xl border border-[rgba(200,180,150,0.4)] bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50 transition-all"
+            className="w-full p-3.5 md:p-4 rounded-xl border border-[rgba(200,180,150,0.4)] bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50 transition-all"
           />
 
           <textarea
@@ -89,7 +89,7 @@ function Contact() {
             placeholder="Your message"
             required
             rows={5}
-            className="w-full p-4 rounded-xl border border-[rgba(200,180,150,0.4)] bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50 transition-all"
+            className="w-full p-3.5 md:p-4 rounded-xl border border-[rgba(200,180,150,0.4)] bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50 transition-all"
           />
 
           <button

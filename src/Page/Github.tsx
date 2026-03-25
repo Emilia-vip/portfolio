@@ -5,7 +5,7 @@ function Github() {
   return (
  
     <div>
-         <img src={arrows} alt="pil nedåt" className="w-7 h-auto absolute top-22 right-26 z-60"/>
+         <img src={arrows} alt="Arrow down" className="hidden md:block w-7 h-auto absolute top-22 right-26 z-60"/>
     
     <div
       className="
@@ -20,9 +20,9 @@ function Github() {
       "
     >
       <p className="mb-3 text-[#5f584f]">
-        Do you want to se more?
+        Do you want to see more?
         <br />
-        Klick bellow
+        Click below
       </p>
       <br/>
    

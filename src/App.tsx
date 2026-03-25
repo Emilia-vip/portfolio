@@ -14,7 +14,7 @@ function App() {
 
       <Navbar />
 
-      <main className="pt-[120px] px-4 sm:px-6 lg:px-8">
+      <main className="pt-[88px] px-4 sm:pt-[100px] sm:px-6 lg:px-8">
         <AboutMe />
         <Projects />
         <Timeline />

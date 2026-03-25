@@ -19,6 +19,13 @@ function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [githubOpen, mobileOpen])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileOpen])
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     el?.scrollIntoView({ behavior: "smooth" })
@@ -28,8 +35,8 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-[rgba(200,180,150,0.4)] shadow-[0_10px_30px_rgba(120,100,70,0.12)]">
-      <nav className="max-w-[1100px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        <div className="text-[12px] font-semibold tracking-[0.35em] uppercase">
+      <nav className="max-w-[1100px] mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between">
+        <div className="text-[10px] sm:text-[12px] font-semibold tracking-[0.3em] sm:tracking-[0.35em] uppercase">
           Emilia Eriksson
           <span className="ml-1 text-[#9c8b6a] animate-cursor font-bold">_</span>
         </div>
@@ -67,6 +74,8 @@ function Navbar() {
           id="hamburger"
           className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#9c8b6a]/50"
           onClick={() => setMobileOpen(prev => !prev)}
+          aria-expanded={mobileOpen ? "true" : "false"}
+          aria-controls="mobile-menu"
         >
           <span className="sr-only">Toggle menu</span>
           <svg
@@ -86,30 +95,34 @@ function Navbar() {
 
         {/* mobile menu overlay */}
         {mobileOpen && (
-          <div
-            id="mobile-menu"
-            className="absolute top-full inset-x-0 bg-white/90 backdrop-blur-lg flex flex-col items-center gap-6 py-8 md:hidden"
-          >
-            {[
-              { id: "about", label: "About" },
-              { id: "projects", label: "Projects" },
-              { id: "contact", label: "Contact" },
-            ].map(link => (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className="text-base font-semibold text-[#3f3a32] uppercase tracking-wider"
-              >
-                {link.label}
-              </button>
-            ))}
-
-            <button
-              onClick={() => setGithubOpen(prev => !prev)}
-              className="text-base font-semibold text-[#3f3a32] uppercase tracking-wider"
+          <div className="md:hidden fixed inset-0 top-16 bg-white/90 backdrop-blur-lg border-t border-[rgba(200,180,150,0.3)]">
+            <div
+              id="mobile-menu"
+              className="h-full px-6 py-8 flex flex-col gap-4"
             >
-              GitHub
-            </button>
+              {[
+                { id: "about", label: "About" },
+                { id: "projects", label: "Projects" },
+                { id: "contact", label: "Contact" },
+              ].map(link => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
+                  className="w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-[#3f3a32] uppercase tracking-[0.2em] bg-white/60 border border-[rgba(200,180,150,0.35)]"
+                >
+                  {link.label}
+                </button>
+              ))}
+
+              <a
+                href="https://github.com/Emilia-vip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-[#3f3a32] uppercase tracking-[0.2em] bg-white/60 border border-[rgba(200,180,150,0.35)]"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
         )}
       </nav>
