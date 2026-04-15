@@ -5,24 +5,57 @@ import brain from "../assets/mindset.port.webp";
 import vison from "../assets/Planning.port.webp";
 
 function AboutMe() {
-  const cards = [
+  const cards: Array<{
+    title: string;
+    text: string;
+    image: string;
+    categories?: Array<{ title: string; items: string }>;
+  }> = [
     {
       title: "My Focus",
       text: "Developing high-performance web applications with a focus on modern architecture and responsive design. Creating future-proof solutions that are as fast as they are functional.",
       image: focus,
-      color: "from-orange-100 to-transparent",
+      
     },
     {
       title: "Tech Stack",
-      text: "React, TypeScript, Node.js, JavaScript, HTML, CSS, API-design, and MongoDB. Always exploring new tools to stay at the forefront of the industry.",
+      text: "A categorized overview of languages, frameworks, databases, and tools I am learning and working with:",
       image: brain,
-      color: "from-blue-100 to-transparent",
+      categories: [
+        {
+          title: "Languages",
+          items: "JavaScript, TypeScript",
+        },
+        {
+          title: "Frontend",
+          items: "HTML5, CSS3, React, Tailwind CSS, Sass, Framer Motion",
+        },
+        {
+          title: "Backend",
+          items: "Node.js, Express, Laravel",
+        },
+        {
+          title: "Databases",
+          items: "MongoDB, PostgreSQL, MySQL",
+        },
+        {
+          title: "Cloud & DevOps",
+          items: "Git, GitHub, Docker, Vercel, Netlify, Render",
+        },
+        {
+          title: "Testing & APIs",
+          items: "Postman, Jest, Vitest, Cypress",
+        },
+        {
+          title: "Familiar with:",
+          items:"Languages: Python, PHP, SQL. Other: Next.js, Docker, Jest, REST APIs"
+        },
+      ],
     },
     {
       title: "Vision",
       text: "Driven by a passion for continuous growth and the future of tech. I strive to evolve with every new breakthrough, mastering the tools of tomorrow.",
       image: vison,
-      color: "from-purple-100 to-transparent",
     },
   ];
 
@@ -118,6 +151,16 @@ function AboutMe() {
                   <p className="text-[#5f584f] text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
                     {item.text}
                   </p>
+
+                  {item.categories && (
+                    <div className="mt-4 space-y-2">
+                      {item.categories.map((category) => (
+                        <p key={category.title} className="text-xs leading-relaxed text-[#5f584f]">
+                          <span className="font-semibold text-[#3f3a32]">{category.title}:</span> {category.items}
+                        </p>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-[rgb(255,255,255)] overflow-hidden">
