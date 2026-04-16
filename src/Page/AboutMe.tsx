@@ -9,18 +9,21 @@ function AboutMe() {
     title: string;
     text: string;
     image: string;
+    color: string;
     categories?: Array<{ title: string; items: string }>;
   }> = [
     {
       title: "My Focus",
       text: "Developing high-performance web applications with a focus on modern architecture and responsive design. Creating future-proof solutions that are as fast as they are functional.",
       image: focus,
+      color: "from-[#d2be96] to-[#9c8b6a]",
       
     },
     {
       title: "Tech Stack",
       text: "A categorized overview of languages, frameworks, databases, and tools I am learning and working with:",
       image: brain,
+      color: "from-[#b8c4a7] to-[#7f8f73]",
       categories: [
         {
           title: "Languages",
@@ -56,6 +59,7 @@ function AboutMe() {
       title: "Vision",
       text: "Driven by a passion for continuous growth and the future of tech. I strive to evolve with every new breakthrough, mastering the tools of tomorrow.",
       image: vison,
+      color: "from-[#e1b9a8] to-[#c98f76]",
     },
   ];
 
