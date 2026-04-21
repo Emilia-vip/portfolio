@@ -51,7 +51,7 @@ function AboutMe() {
         },
         {
           title: "Familiar with:",
-          items:"Languages: Python, PHP, SQL. Other: Next.js, Jest, REST APIs"
+          items:"Languages: Python, PHP, Java, SQL. Other: Next.js, Jest, REST APIs"
         },
       ],
     },
