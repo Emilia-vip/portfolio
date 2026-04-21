@@ -47,11 +47,11 @@ function AboutMe() {
         },
         {
           title: "Testing & APIs",
-          items: "Postman, Jest, Vitest, Cypress",
+          items: "Postman, Jest, Vitest, Cypress, Datagript",
         },
         {
           title: "Familiar with:",
-          items:"Languages: Python, PHP, SQL. Other: Next.js, Docker, Jest, REST APIs"
+          items:"Languages: Python, PHP, SQL. Other: Next.js, Jest, REST APIs"
         },
       ],
     },

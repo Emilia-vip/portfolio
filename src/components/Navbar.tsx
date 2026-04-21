@@ -34,7 +34,7 @@ function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-[rgba(200,180,150,0.4)] shadow-[0_10px_30px_rgba(120,100,70,0.12)]">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#f6f2ea] border-b border-[rgba(200,180,150,0.55)] shadow-[0_10px_30px_rgba(120,100,70,0.14)]">
       <nav className="max-w-[1100px] mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between">
         <div className="text-[10px] sm:text-[12px] font-semibold tracking-[0.3em] sm:tracking-[0.35em] uppercase">
           Emilia Eriksson
