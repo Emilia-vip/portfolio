@@ -29,6 +29,13 @@ const projects = [
     tech: ["React", "TypeScript", "Tailwind"],
     github: "https://github.com/Emilia-vip/portfolio",
   },
+  {
+    title: "Avora",
+    description:
+      "This is a wardrobe app where you can add your clothes and have an AI select an outfit based on the items you've added. It is built using React Native and TypeScript, full-stack technologies. This project is currently under development. ",
+    tech: ["React Native", "TypeScript", "css"],
+    github: "https://github.com/Emilia-vip/Avora",
+  },
 ];
 
 function Projects() {
